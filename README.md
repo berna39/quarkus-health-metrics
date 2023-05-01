@@ -1,8 +1,20 @@
 # quarkus-health-metrics
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Quarkus application demo of implementation of Eclipse Microprofile Metrics and Health to monitor
+application state information to external viewers.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+### Metrics
+
+Metrics allows applications to gather metrics and statistics that provide insights 
+into what is happening inside an application. The metrics can be read remotely using the JSON or 
+OpenMetrics format to be processed by additional tools such as Prometheus and stored for analysis
+and visualization.
+
+### Health
+
+Health allows applications to provide information about their state to external viewers
+which is typically useful in cloud environments where automated processes must be able to determine
+whether the application should be discarded or restarted
 
 ## Running the application in dev mode
 
@@ -10,8 +22,21 @@ You can run your application in dev mode that enables live coding using:
 ```shell script
 ./mvnw compile quarkus:dev
 ```
+## Endpoints
+```shell script
+http://localhost:8080/
+http://localhost:8080/todo #for todos
+http://localhost:8080/q/metrics/base #for CPU, ClassLoader, ... metrics
+http://localhost:8080/q/metrics/metrics #for memoryPool, ... metrics
+http://localhost:8080/q/metrics/application #for your custom metrics implemented...with annotations
+http://localhost:8080/q/health-ui/ # Quarkus Health UI Interface 
+```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+## Testing Tools
+
+```
+Postman #dont forget to use the JSOM encoding for requests
+```
 
 ## Packaging and running the application
 
@@ -52,16 +77,5 @@ If you want to learn more about building native executables, please consult http
 - SmallRye Health ([guide](https://quarkus.io/guides/smallrye-health)): Monitor service health
 - SmallRye Metrics ([guide](https://quarkus.io/guides/smallrye-metrics)): Expose metrics for your services
 
-## Provided Code
 
-### RESTEasy Reactive
 
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
-
-### SmallRye Health
-
-Monitor your application's health using SmallRye Health
-
-[Related guide section...](https://quarkus.io/guides/smallrye-health)
