@@ -5,8 +5,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.eclipse.microprofile.metrics.MetricUnits;
-import org.eclipse.microprofile.metrics.annotation.Gauge;
 
 @Path("/")
 @Produces({MediaType.APPLICATION_JSON})
